@@ -15,11 +15,11 @@ class Sales extends Model
 
     public function customer()
     {
-        return $this->belongsTo('customer_id', Customer::class);
+        return $this->belongsTo(Customer::class, 'customer_id');
     }
 
     public function details()
     {
-        return $this->belongsTo('sales_id', Sales::class);
+        return $this->hasMany(Sales_det::class, 'id');
     }
 }

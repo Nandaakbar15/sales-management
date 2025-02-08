@@ -13,7 +13,7 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
     Route::get('/home', 'App\Http\Controllers\AdminController@home')->name('admin.home');
     Route::get('/transaksi', 'App\Http\Controllers\TransaksiController@index');
-    Route::get('/viewtambahtransaksi', 'App\Http\Controllers\TransaksiController@tambahTransaksi');
+    Route::get('/viewtambahtransaksi', 'App\Http\Controllers\TransaksiController@viewtambahTransaksi');
     Route::post('/tambahTransaksi', 'App\Http\Controllers\TransaksiController@tambahTransaksi');
     Route::get('/barang', 'App\Http\Controllers\BarangController@index');
     Route::get('/barang/viewtambahBarang', 'App\Http\Controllers\BarangController@create');

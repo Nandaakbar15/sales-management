@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal("diskon_pct", 10, 2);
             $table->decimal("diskon_nilai", 10, 2)->nullable();
             $table->decimal("harga_diskon", 10, 2);
+            $table->decimal("harga_badrol", 10, 2);
             $table->decimal("total", 10, 2);
             $table->timestamps();
         });

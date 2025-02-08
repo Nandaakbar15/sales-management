@@ -5,7 +5,7 @@
   <div class="card-body">
       <h3 class="card-title">Data Transaksi</h3>
       <div class="table-responsive">
-        <h3><a href="/admin/tambahTransaksi" class="btn btn-primary">Tambah Transaksi</a></h3>
+        <h3><a href="/admin/viewtambahtransaksi" class="btn btn-primary">Tambah Transaksi</a></h3>
         <table class="table">
           <thead>
             <tr>
@@ -20,16 +20,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <th scope="row">1</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+            @foreach ($transaksi as $index => $trx)
+              <tr>
+                <th scope="row">{{ $index + 1 }}</th>
+                <td>{{ $trx->kode }}</td>
+                <td>{{ $trx->customer->nama }}</td>
+                <td>{{ $trx->details->sum('qty') }}</td> 
+                <td>Rp {{ number_format($trx->subtotal, 2, ',', '.') }}</td>
+                <td>{{ $trx->diskon_pct ? $trx->diskon_pct . '%' : '-' }}</td>
+                <td>Rp {{ number_format($trx->ongkir, 2, ',', '.') }}</td>
+                <td>Rp {{ number_format($trx->total_bayar, 2, ',', '.') }}</td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

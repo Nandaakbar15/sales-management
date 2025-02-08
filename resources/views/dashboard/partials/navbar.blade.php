@@ -17,7 +17,7 @@
     <div class="navbar-menu-wrapper d-flex align-items-top">
       <ul class="navbar-nav">
         <li class="nav-item fw-semibold d-none d-lg-block ms-0">
-          <h1 class="welcome-text">Dashboard Admin</h1>
+          <h1 class="welcome-text">PT. Mitra Sinerji Teknoindo</h1>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
