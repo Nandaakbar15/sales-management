@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Modal Sukses -->
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    {{-- <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-success text-white">
@@ -17,7 +17,7 @@
             </div>
         </div>
         </div>
-    </div>
+    </div> --}}
     <div class="card">
         <div class="card-body">
             <h3 class="card-title">Daftar Customer</h3>
@@ -39,10 +39,10 @@
                             <td>{{ $item->nama }}</td>
                             <td>{{ $item->telp }}</td>
                             <td>
-                                <a href="/admin/ubahcustomer/{{ $item->customer_id }}" class="btn btn-primary"><img src="{{ asset('images/edit.png') }}" alt="" width="60px" height="60px"></a>
+                                <a href="/admin/customer/viewubahCustomer/{{ $item->customer_id }}" class="btn btn-primary"><img src="{{ asset('images/edit.png') }}" alt="" width="60px" height="60px"></a>
                             </td>
                             <td>
-                                <form action="/admin/hapusCustomer/{{ $item->customer_id }}" class="d-inline" method="POST">
+                                <form action="/admin/customer/hapusCustomer/{{ $item->customer_id }}" class="d-inline" method="POST">
                                     @method('delete')
                                     @csrf
                                     <button class="badge border-0" onclick="return confirm('Yakin mau hapus data ini?')"><img src="{{ asset('images/delete.png') }}" alt="" width="60px" height="60px"></button>
@@ -55,13 +55,13 @@
             </div>
         </div>
     </div>
-    <script>
+    {{-- <script>
         document.addEventListener("DOMContentLoaded", function() {
             @if(session('success'))
                 var successModal = new bootstrap.Modal(document.getElementById('successModal'));
                 successModal.show();
             @endif
         });
-    </script>
+    </script> --}}
     
 @endsection

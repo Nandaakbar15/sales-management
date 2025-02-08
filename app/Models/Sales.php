@@ -12,4 +12,14 @@ class Sales extends Model
     protected $table = 't_sales';
     protected $primaryKey = 'sales_id';
     protected $fillable = ['kode', 'tgl', 'customer_id', 'subtotal', 'diskon', 'ongkir', 'total_bayar'];
+
+    public function customer()
+    {
+        return $this->belongsTo('customer_id', Customer::class);
+    }
+
+    public function details()
+    {
+        return $this->belongsTo('sales_id', Sales::class);
+    }
 }

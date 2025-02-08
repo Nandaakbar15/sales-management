@@ -13,7 +13,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customer = Customer::all();
-        return view('customer.viewcustomer', [
+        return view('dashboard.customer.viewcustomer', [
             'customer' => $customer
         ]);
     }
@@ -23,7 +23,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.customer.tambahcustomer');
     }
 
     /**
@@ -31,15 +31,15 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'kode' => 'required',
+            'telp' => 'required'
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Customer $customer)
-    {
-        //
+        Customer::create($validateData);
+
+        return redirect('/admin/customer')->with('success', 'Customer berhasil ditambahkan!');
     }
 
     /**
@@ -47,7 +47,9 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('dashboard.customer.ubahcustomer', [
+            'customer' => $customer
+        ]);
     }
 
     /**
@@ -55,7 +57,15 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'kode' => 'required',
+            'telp' => 'required'
+        ]);
+
+        $customer->update($validateData);
+
+        return redirect('/admin/customer')->with('success', 'Customer berhasil diubah!');
     }
 
     /**
@@ -63,6 +73,7 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+        return redirect('/admin/customer')->with('success', 'Customer berhasil dihapus!');
     }
 }
