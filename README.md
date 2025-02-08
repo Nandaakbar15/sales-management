@@ -7,4 +7,7 @@ Aplikasi berbasis website ini mengelola barang dan transaksi dan juga customer y
 - CRUD Data Customer
 - Menambah Transaksi termasuk memasukan nama customer dan barang ketika memesan sebuah produk atau barang dalam form tambah transaksi.
 
+## Link Demo atau hosting
+www.salesmanagement.my.id
+
 
